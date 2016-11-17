@@ -8,7 +8,7 @@ Primitive mesh builders for Unity.
 ## Usage
 
 ```cs
-Mesh mesh = PlaneBuilder(
+Mesh mesh = PlaneBuilder.Build(
     5f,     // width
     10f,    // height
     2,      // width segments
