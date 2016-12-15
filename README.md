@@ -22,9 +22,11 @@ Mesh mesh = PlaneBuilder.Build(
 - Cube
 - Cylinder
 - Sphere
+- Frustum
 
 Another primitives are in progress ...
 
 ## Sources
 
 - ProceduralPrimitives - Unity Community Wiki - http://wiki.unity3d.com/index.php/ProceduralPrimitives
+- Viewports and Clipping - https://msdn.microsoft.com/en-us/library/windows/desktop/bb206341
