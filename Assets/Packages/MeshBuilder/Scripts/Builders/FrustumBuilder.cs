@@ -9,6 +9,20 @@ namespace mattatz.MeshBuilderSystem {
 
     public class FrustumBuilder : MeshBuilder {
 
+		public static Mesh Build(Vector3 forward, Vector3 up, Matrix4x4 projectionMatrix) {
+			var m00 = projectionMatrix.m00;
+			var m11 = projectionMatrix.m11;
+			var m22 = - projectionMatrix.m22;
+			var m23 = - projectionMatrix.m23;
+
+			var nearClip = (2f * m23) / (2f * m22 - 2f);
+			var farClip = ((m22 - 1f) * nearClip) / (m22 + 1f);
+			var fov = Mathf.Atan(1f / m11) * 2f * Mathf.Rad2Deg;
+			var aspectRatio = (1f / m00) / (1f / m11);
+
+			return Build(forward, up, nearClip, farClip, fov, aspectRatio);
+		}
+
         public static Mesh Build(Vector3 forward, Vector3 up, float nearClip, float farClip, float fieldOfView = 60f, float aspectRatio = 1f) {
             var mesh = new Mesh();
 
