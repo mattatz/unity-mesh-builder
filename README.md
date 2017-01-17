@@ -23,6 +23,7 @@ Mesh mesh = PlaneBuilder.Build(
 - Cylinder
 - Sphere
 - Frustum
+- Cone
 
 Another primitives are in progress ...
 
@@ -30,3 +31,4 @@ Another primitives are in progress ...
 
 - ProceduralPrimitives - Unity Community Wiki - http://wiki.unity3d.com/index.php/ProceduralPrimitives
 - Viewports and Clipping - https://msdn.microsoft.com/en-us/library/windows/desktop/bb206341
+- mattatz/Cone.cs - https://gist.github.com/mattatz/aba0d06fa56ef65e45e2
