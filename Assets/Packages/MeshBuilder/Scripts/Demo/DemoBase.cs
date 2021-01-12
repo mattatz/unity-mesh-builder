@@ -7,7 +7,8 @@ using System.Collections.Generic;
 
 namespace MeshBuilder {
 
-    [RequireComponent (typeof(MeshFilter))]
+    [ExecuteInEditMode]
+    [RequireComponent (typeof(MeshFilter), typeof(MeshRenderer))]
     public abstract class DemoBase : MonoBehaviour {
 
         protected MeshFilter filter;

@@ -25,6 +25,7 @@ Mesh mesh = PlaneBuilder.Build(
 - Icosphere
 - Frustum
 - Cone
+- Torus
 
 Another primitives are in progress ...
 
