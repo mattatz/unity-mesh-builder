@@ -26,11 +26,13 @@ Mesh mesh = PlaneBuilder.Build(
 - Frustum
 - Cone
 - Torus
+- Ring
 
 Another primitives are in progress ...
 
 ## Sources
 
+- three.js - https://threejs.org/
 - ProceduralPrimitives - Unity Community Wiki - http://wiki.unity3d.com/index.php/ProceduralPrimitives
 - Viewports and Clipping - https://msdn.microsoft.com/en-us/library/windows/desktop/bb206341
 - mattatz/Cone.cs - https://gist.github.com/mattatz/aba0d06fa56ef65e45e2

@@ -5,6 +5,7 @@ using UnityEngine;
 namespace MeshBuilder
 {
 
+    // Source: https://threejs.org/docs/index.html#api/en/geometries/TorusGeometry
     public class TorusBuilder : MeshBuilderBase
     {
 
