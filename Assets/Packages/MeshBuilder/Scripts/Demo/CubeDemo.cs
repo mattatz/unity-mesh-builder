@@ -1,11 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-namespace mattatz.MeshBuilderSystem {
+namespace MeshBuilder {
 
     [ExecuteInEditMode]
     [RequireComponent (typeof(MeshFilter), typeof(MeshRenderer))]
-    public class CubeDemo : Demo {
+    public class CubeDemo : DemoBase {
 
         [SerializeField, Range(0.5f, 10f)] float width = 1f;
         [SerializeField, Range(0.5f, 10f)] float height = 1f;

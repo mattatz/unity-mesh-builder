@@ -5,9 +5,9 @@ using System.Linq;
 using System.Collections;
 using System.Collections.Generic;
 
-namespace mattatz.MeshBuilderSystem {
+namespace MeshBuilder {
 
-    public class FrustumBuilder : MeshBuilder {
+    public class FrustumBuilder : MeshBuilderBase {
 
 		public static Mesh Build(Vector3 forward, Vector3 up, Matrix4x4 projectionMatrix) {
 			var m00 = projectionMatrix.m00;

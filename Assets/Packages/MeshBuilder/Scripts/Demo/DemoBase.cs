@@ -5,10 +5,10 @@ using System.Linq;
 using System.Collections;
 using System.Collections.Generic;
 
-namespace mattatz.MeshBuilderSystem {
+namespace MeshBuilder {
 
     [RequireComponent (typeof(MeshFilter))]
-    public class Demo : MonoBehaviour {
+    public abstract class DemoBase : MonoBehaviour {
 
         protected MeshFilter filter;
         protected Material lineMaterial;
@@ -17,7 +17,7 @@ namespace mattatz.MeshBuilderSystem {
             filter = GetComponent<MeshFilter>();
         }
 
-        void OnRenderObject () {
+        protected void OnRenderObject () {
             if (filter == null || filter.sharedMesh == null) return;
 
             var mesh = filter.sharedMesh;
@@ -48,9 +48,9 @@ namespace mattatz.MeshBuilderSystem {
             GL.PopMatrix();
         }
 
-        void CheckInit () {
+        protected void CheckInit () {
             if(lineMaterial == null) {
-                Shader shader = Shader.Find("mattatz/MeshBuilder/DebugLine");
+                Shader shader = Shader.Find("Hidden/MeshBuilder/DebugLine");
                 if (shader == null) return;
                 lineMaterial = new Material(shader);
                 lineMaterial.hideFlags = HideFlags.HideAndDontSave;

@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-namespace mattatz.MeshBuilderSystem {
+namespace MeshBuilder {
 
     [ExecuteInEditMode]
     [RequireComponent (typeof(MeshFilter))]

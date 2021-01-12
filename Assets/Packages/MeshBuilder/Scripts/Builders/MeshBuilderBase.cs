@@ -1,9 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-namespace mattatz.MeshBuilderSystem {
+namespace MeshBuilder {
     
-    public class MeshBuilder {
+    public abstract class MeshBuilderBase {
     }
         
 }

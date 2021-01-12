@@ -5,9 +5,9 @@ using System.Linq;
 using System.Collections;
 using System.Collections.Generic;
 
-namespace mattatz.MeshBuilderSystem {
+namespace MeshBuilder {
 
-    public class ConeBuilder : MeshBuilder {
+    public class ConeBuilder : MeshBuilderBase {
 
         // https://gist.github.com/mattatz/aba0d06fa56ef65e45e2
         public static Mesh Build(int subdivisions = 10, float radius = 1f, float height = 1f) {

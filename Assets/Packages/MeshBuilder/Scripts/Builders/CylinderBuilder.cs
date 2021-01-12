@@ -5,9 +5,9 @@ using System.Linq;
 using System.Collections;
 using System.Collections.Generic;
 
-namespace mattatz.MeshBuilderSystem {
+namespace MeshBuilder {
 
-    public class CylinderBuilder : MeshBuilder {
+    public class CylinderBuilder : MeshBuilderBase {
 
         public static Mesh Build (float radius, float height, int segments = 10, bool openEnded = true) {
             segments = Mathf.Max(3, segments);

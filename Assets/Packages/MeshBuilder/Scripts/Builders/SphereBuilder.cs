@@ -5,10 +5,10 @@ using System.Linq;
 using System.Collections;
 using System.Collections.Generic;
 
-namespace mattatz.MeshBuilderSystem {
+namespace MeshBuilder {
 
     // http://wiki.unity3d.com/index.php/ProceduralPrimitives#C.23_-_Sphere
-    public class SphereBuilder : MeshBuilder {
+    public class SphereBuilder : MeshBuilderBase {
 
         public static Mesh Build(float radius = 1f, int lonSegments = 24, int latSegments = 16) {
             var mesh = new Mesh();

@@ -3,9 +3,9 @@
 using System.Collections;
 using System.Collections.Generic;
 
-namespace mattatz.MeshBuilderSystem {
+namespace MeshBuilder {
 
-    public class PlaneBuilder : MeshBuilder {
+    public class PlaneBuilder : MeshBuilderBase {
 
         public static Mesh Build (float width = 1f, float height = 1f, int wSegments = 1, int hSegments = 1) {
             return Build(new ParametricPlaneDefault(), width, height, wSegments, hSegments);

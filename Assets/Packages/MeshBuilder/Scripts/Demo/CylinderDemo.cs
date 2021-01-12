@@ -1,11 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-namespace mattatz.MeshBuilderSystem {
+namespace MeshBuilder {
 
     [ExecuteInEditMode]
     [RequireComponent (typeof(MeshFilter), typeof(MeshRenderer))]
-    public class CylinderDemo : Demo {
+    public class CylinderDemo : DemoBase {
 
         [SerializeField] float radius = 1f;
         [SerializeField] float height = 4f;

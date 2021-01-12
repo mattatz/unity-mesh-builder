@@ -1,11 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-namespace mattatz.MeshBuilderSystem {
+namespace MeshBuilder {
 
     [ExecuteInEditMode]
     [RequireComponent (typeof(MeshFilter), typeof(MeshRenderer))]
-    public class FrustumDemo : Demo {
+    public class FrustumDemo : DemoBase {
 
         [SerializeField, Range(0.1f, 1f)] float nearClip = 0.1f;
         [SerializeField, Range(1f, 5f)] float farClip = 1f;

@@ -3,7 +3,7 @@ using UnityEditor;
 
 using System.Collections;
 
-namespace mattatz.MeshBuilderSystem {
+namespace MeshBuilder {
 
     public class SaveMeshWindow : EditorWindow {
 

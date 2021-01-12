@@ -5,9 +5,9 @@ using System.Linq;
 using System.Collections;
 using System.Collections.Generic;
 
-namespace mattatz.MeshBuilderSystem {
+namespace MeshBuilder {
 
-    public class CubeBuilder : MeshBuilder {
+    public class CubeBuilder : MeshBuilderBase {
 
         public static Mesh Build (
             float width = 1f, float height = 1f, float depth = 1f,

@@ -1,12 +1,12 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-namespace mattatz.MeshBuilderSystem {
+namespace MeshBuilder {
 
     [ExecuteInEditMode]
     [RequireComponent (typeof(MeshFilter), typeof(MeshRenderer))]
 
-    public class PlaneDemo : Demo {
+    public class PlaneDemo : DemoBase {
 
         public enum PlaneType {
             Default, Noise

@@ -4,7 +4,7 @@ using Random = UnityEngine.Random;
 using System;
 using System.Collections;
 
-namespace mattatz.MeshBuilderSystem {
+namespace MeshBuilder {
 
     public abstract class ParametricPlane {
         public abstract float Height(float ux, float uy);
