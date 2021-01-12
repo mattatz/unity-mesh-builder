@@ -15,6 +15,15 @@ namespace MeshBuilder {
 
         protected virtual void Start () {
             filter = GetComponent<MeshFilter>();
+            Build(filter);
+        }
+
+        protected abstract void Build(MeshFilter filter);
+
+        protected void OnValidate()
+        {
+            if (filter == null) filter = GetComponent<MeshFilter>();
+            Build(filter);
         }
 
         protected void OnRenderObject () {
@@ -50,7 +59,7 @@ namespace MeshBuilder {
 
         protected void CheckInit () {
             if(lineMaterial == null) {
-                Shader shader = Shader.Find("Hidden/MeshBuilder/DebugLine");
+                Shader shader = Shader.Find("MeshBuilder/DebugLine");
                 if (shader == null) return;
                 lineMaterial = new Material(shader);
                 lineMaterial.hideFlags = HideFlags.HideAndDontSave;

@@ -11,9 +11,9 @@ namespace MeshBuilder {
         [SerializeField, Range(8, 20)] int lonSegments = 10;
         [SerializeField, Range(8, 20)] int latSegments = 10;
 
-        protected override void Start () {
-            base.Start();
-            filter.mesh = SphereBuilder.Build(radius, lonSegments, latSegments);
+        protected override void Build(MeshFilter filter)
+        {
+            filter.sharedMesh = SphereBuilder.Build(radius, lonSegments, latSegments);
         }
 
     }

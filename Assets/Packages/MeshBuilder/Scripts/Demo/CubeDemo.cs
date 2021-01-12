@@ -14,10 +14,9 @@ namespace MeshBuilder {
         [SerializeField, Range(2, 20)] int heightSegments = 2;
         [SerializeField, Range(2, 20)] int depthSegments = 2;
 
-        protected override void Start () {
-            base.Start();
-
-            filter.mesh = CubeBuilder.Build(
+        protected override void Build(MeshFilter filter)
+        {
+            filter.sharedMesh = CubeBuilder.Build(
                 width, height, depth,
                 widthSegments, heightSegments, depthSegments
             );

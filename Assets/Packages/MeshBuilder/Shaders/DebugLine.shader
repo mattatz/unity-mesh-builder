@@ -1,4 +1,4 @@
-﻿Shader "Hidden/MeshBuilder/DebugLine" {
+﻿Shader "MeshBuilder/DebugLine" {
 
 	Properties {
 		_Color ("Color", Color) = (1, 1, 1, 1)

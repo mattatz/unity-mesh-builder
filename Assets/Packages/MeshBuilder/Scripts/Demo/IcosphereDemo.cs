@@ -12,10 +12,9 @@ namespace MeshBuilder
         [SerializeField, Range(0.5f, 10f)] float radius = 1f;
         [SerializeField, Range(0, 5)] int details = 1;
 
-        protected override void Start()
+        protected override void Build(MeshFilter filter)
         {
-            base.Start();
-            filter.mesh = IcosphereBuilder.Build(radius, details);
+            filter.sharedMesh = IcosphereBuilder.Build(radius, details);
         }
 
     }

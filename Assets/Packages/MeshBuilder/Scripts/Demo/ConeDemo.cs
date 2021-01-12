@@ -11,9 +11,9 @@ namespace MeshBuilder {
         [SerializeField, Range(0.5f, 10f)] float radius = 1f;
         [SerializeField, Range(0.5f, 10f)] float height = 1f;
 
-        protected override void Start () {
-            base.Start();
-            filter.mesh = ConeBuilder.Build(subdivision, radius, height);
+        protected override void Build(MeshFilter filter)
+        {
+            filter.sharedMesh = ConeBuilder.Build(subdivision, radius, height);
         }
 
     }

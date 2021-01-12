@@ -12,9 +12,9 @@ namespace MeshBuilder {
         [SerializeField, Range(45f, 90f)] float fieldOfView = 60f;
         [SerializeField, Range(0f, 1f)] float aspectRatio = 1f;
 
-        protected override void Start () {
-            base.Start();
-            filter.mesh = FrustumBuilder.Build(Vector3.forward, Vector3.up, nearClip, farClip, fieldOfView, aspectRatio);
+        protected override void Build(MeshFilter filter)
+        {
+            filter.sharedMesh = FrustumBuilder.Build(Vector3.forward, Vector3.up, nearClip, farClip, fieldOfView, aspectRatio);
         }
 
     }
