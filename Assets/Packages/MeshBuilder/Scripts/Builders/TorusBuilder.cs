@@ -8,22 +8,24 @@ namespace MeshBuilder
     public class TorusBuilder : MeshBuilderBase
     {
 
-        public static Mesh Build(float radius, float thickness, int radialSegments = 8, int tubularSegments = 8, float arc = Mathf.PI * 2f)
+        public static Mesh Build(float radius, float thickness, int radialSegments = 8, int thetaSegments = 8, float thetaStart = 0f, float thetaEnd = Mathf.PI * 2f)
         {
             radialSegments = Mathf.Max(2, radialSegments);
-            tubularSegments = Mathf.Max(3, tubularSegments);
+            thetaSegments = Mathf.Max(3, thetaSegments);
 
             var vertices = new List<Vector3>();
             var normals = new List<Vector3>();
             var uvs = new List<Vector2>();
             var indices = new List<int>();
 
+            var tInterval = (thetaEnd - thetaStart);
+
             for (int y = 0; y <= radialSegments; y++)
             {
                 var v = 1f * y / radialSegments * Mathf.PI * 2;
-                for (int x = 0; x <= tubularSegments; x++)
+                for (int x = 0; x <= thetaSegments; x++)
                 {
-                    var u = 1f * x / tubularSegments * arc;
+                    var u = thetaStart + 1f * x / thetaSegments * tInterval;
 
                     var vertex = new Vector3(
                         (radius + thickness * Mathf.Cos(v)) * Mathf.Cos(u),
@@ -38,18 +40,18 @@ namespace MeshBuilder
                         0f
                     );
                     normals.Add((vertex - center).normalized);
-                    uvs.Add(new Vector2(1f * x / tubularSegments, 1f * y / radialSegments));
+                    uvs.Add(new Vector2(1f * x / thetaSegments, 1f * y / radialSegments));
                 }
             }
 
             for (int y = 1; y <= radialSegments; y++)
             {
-                for (int x = 1; x <= tubularSegments; x++)
+                for (int x = 1; x <= thetaSegments; x++)
                 {
-                    var a = (tubularSegments + 1) * y + x - 1;
-                    var b = (tubularSegments + 1) * (y - 1) + x - 1;
-                    var c = (tubularSegments + 1) * (y - 1) + x;
-                    var d = (tubularSegments + 1) * y + x;
+                    var a = (thetaSegments + 1) * y + x - 1;
+                    var b = (thetaSegments + 1) * (y - 1) + x - 1;
+                    var c = (thetaSegments + 1) * (y - 1) + x;
+                    var d = (thetaSegments + 1) * y + x;
                     indices.Add(a); indices.Add(b); indices.Add(d);
                     indices.Add(b); indices.Add(c); indices.Add(d);
                 }
