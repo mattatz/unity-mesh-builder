@@ -41,9 +41,9 @@ namespace MeshBuilder
             int v = vertices.Count;
             var midCache = new Dictionary<int, int>();
 
-            Func<int, int, int> addMidPoint = (int a, int b) =>
+            Func<int, int, int> MidPoint = (int a, int b) =>
             {
-                var key = Mathf.FloorToInt((a + b) * (a + b + 1) / 2) + Mathf.Min(a, b); // Cantor's pairing function
+                var key = CalculateCantorPair(a, b);
                 if (midCache.ContainsKey(key))
                     return midCache[key];
 
@@ -64,9 +64,9 @@ namespace MeshBuilder
                     var i0 = indices[k + 0];
                     var i1 = indices[k + 1];
                     var i2 = indices[k + 2];
-                    var a = addMidPoint(i0, i1);
-                    var b = addMidPoint(i1, i2);
-                    var c = addMidPoint(i2, i0);
+                    var a = MidPoint(i0, i1);
+                    var b = MidPoint(i1, i2);
+                    var c = MidPoint(i2, i0);
                     indices.Add(i0); indices.Add(a); indices.Add(c);
                     indices.Add(a); indices.Add(i1); indices.Add(b);
                     indices.Add(c); indices.Add(b); indices.Add(i2);
@@ -81,6 +81,13 @@ namespace MeshBuilder
             mesh.RecalculateBounds();
 
             return mesh;
+        }
+
+        // https://medium.com/@PraveenMathew92/cantor-pairing-function-e213a8a89c2b
+        protected static int CalculateCantorPair(int k1, int k2)
+        {
+            int sum = k1 + k2;
+            return Mathf.FloorToInt(sum * (sum + 1) / 2) + Mathf.Min(k1, k2);
         }
 
     }
