@@ -45,9 +45,11 @@ namespace MeshBuilder {
                 }
             }
 
-            mesh.vertices = vertices.ToArray();
+            mesh.SetVertices(vertices);
+            mesh.SetUVs(0, uvs);
             mesh.SetTriangles(triangles.ToArray(), 0);
-            mesh.uv = uvs.ToArray();
+            mesh.RecalculateNormals();
+            mesh.RecalculateBounds();
 
             return mesh;
         }

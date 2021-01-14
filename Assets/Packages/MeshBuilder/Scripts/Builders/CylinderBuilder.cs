@@ -16,6 +16,7 @@ namespace MeshBuilder {
             var mesh = new Mesh();
 
             var vertices = new List<Vector3>();
+            var normals = new List<Vector3>();
             var triangles = new List<int>();
             var uvs = new List<Vector2>();
 
@@ -30,10 +31,14 @@ namespace MeshBuilder {
             {
                 float rad = fx * pi2;
                 var py = fy * height - hh;
-                var top = new Vector3(Mathf.Cos(rad) * radius, py + uy, Mathf.Sin(rad) * radius);
-                var bottom = new Vector3(Mathf.Cos(rad) * radius, py, Mathf.Sin(rad) * radius);
+
+                float c = Mathf.Cos(rad), s = Mathf.Sin(rad);
+                var top = new Vector3(c * radius, py + uy, s * radius);
+                var bottom = new Vector3(c * radius, py, s * radius);
+
                 vertices.Add(top); uvs.Add(new Vector2(fx, fy + invH));
                 vertices.Add(bottom); uvs.Add(new Vector2(fx, fy));
+                normals.Add(new Vector3(c, 0f, s)); normals.Add(new Vector3(c, 0f, s));
             };
 
             for (int y = 0; y < heightSegments; y++)
@@ -66,6 +71,7 @@ namespace MeshBuilder {
                 {
                     int top = vertices.Count;
                     vertices.Add(new Vector3(0f, hh, 0f)); // top
+                    normals.Add(Vector3.up);
                     uvs.Add(new Vector2(0.5f, 1f));
 
                     // top side
@@ -75,6 +81,7 @@ namespace MeshBuilder {
                         var rad = fx * pi2;
                         var v = new Vector3(Mathf.Cos(rad) * radius, hh, Mathf.Sin(rad) * radius);
                         vertices.Add(v);
+                        normals.Add(Vector3.up);
                         uvs.Add(new Vector2(fx, 1f));
                     }
 
@@ -90,6 +97,7 @@ namespace MeshBuilder {
                 {
                     int bottom = vertices.Count;
                     vertices.Add(new Vector3(0f, -hh, 0f)); // bottom
+                    normals.Add(Vector3.down);
                     uvs.Add(new Vector2(0.5f, 0f));
 
                     // bottom side
@@ -99,6 +107,7 @@ namespace MeshBuilder {
                         var rad = fx * pi2;
                         var v = new Vector3(Mathf.Cos(rad) * radius, -hh, Mathf.Sin(rad) * radius);
                         vertices.Add(v);
+                        normals.Add(Vector3.down);
                         uvs.Add(new Vector2(fx, 0f));
                     }
 
@@ -112,10 +121,10 @@ namespace MeshBuilder {
 
             }
 
-            mesh.vertices = vertices.ToArray();
-            mesh.uv = uvs.ToArray();
+            mesh.SetVertices(vertices);
+            mesh.SetNormals(normals);
+            mesh.SetUVs(0, uvs);
             mesh.SetTriangles(triangles.ToArray(), 0);
-            mesh.RecalculateNormals();
             mesh.RecalculateBounds();
 
             return mesh;
