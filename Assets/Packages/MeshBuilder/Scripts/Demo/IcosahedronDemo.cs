@@ -7,14 +7,14 @@ namespace MeshBuilder
 
     [ExecuteInEditMode]
     [RequireComponent (typeof(MeshFilter), typeof(MeshRenderer))]
-    public class IcosphereDemo : DemoBase
+    public class IcosahedronDemo : DemoBase
     {
         [SerializeField, Range(0.5f, 10f)] float radius = 1f;
         [SerializeField, Range(0, 5)] int details = 1;
 
         protected override void Build(MeshFilter filter)
         {
-            filter.sharedMesh = IcosphereBuilder.Build(radius, details);
+            filter.sharedMesh = IcosahedronBuilder.Build(radius, details);
         }
 
     }

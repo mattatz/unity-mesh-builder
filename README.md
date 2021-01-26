@@ -22,7 +22,8 @@ Mesh mesh = PlaneBuilder.Build(
 - Cube
 - Cylinder
 - Sphere
-- Icosphere
+- Icosphere (Icohedron)
+- Octahedron
 - Frustum
 - Cone
 - Torus
